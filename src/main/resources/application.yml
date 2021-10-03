@@ -1,0 +1,65 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, info, health
+server:
+  port: 8080
+spring:
+  application.name: controle-financeiro
+  main:
+    allow-bean-definition-overriding: true
+  zipkin.base-url: http://controle-financeiro-trace:9411
+  sleuth.sampler.probability: 1.0
+
+  datasource:
+    url: jdbc:postgresql://controle-financeiro-bd:5432/controle-financeiro
+    username: postgres
+    password: 123456
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      pool-name: controle-financeiro
+      connection-timeout: 6000
+      minimum-idle: 1
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate.format_sql: true
+
+  cloud:
+    config:
+      import-check:
+        enabled: false
+---
+controle.financeiro.messages:
+  '001': 'Não foi possível salvar Categoria'
+  '002': 'Categoria não encontrada'
+  '003': 'Categoria inválida'
+  '004': 'Operação não permitida'
+  '005': 'Não foi possível salvar Subcategoria'
+  '006': 'Subcategoria não encontrada'
+  '007': 'Subcategoria inválida'
+  '008': 'Não foi possível salvar Lançamento'
+  '009': 'Lançamento não encontrado'
+  '010': 'Não foi possível salvar Lançamento'
+  '011' : 'Lançamento inválido'
+---
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    service-url:
+      defaultZone: 'http://controle-financeiro-eureka-server:8761/eureka'
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 90000
+
+ribbon:
+  ConnectTimeout: 10000
+  ReadTimeout: 20000

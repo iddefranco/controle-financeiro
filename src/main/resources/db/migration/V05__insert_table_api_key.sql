@@ -1,0 +1,1 @@
+INSERT INTO public.api_key (key) VALUES('aXRhw7o=');

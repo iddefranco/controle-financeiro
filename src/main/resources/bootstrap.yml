@@ -1,0 +1,15 @@
+
+spring:
+  application:
+    name: controle-financeiro
+  profiles:
+    active: prod
+  cloud:
+    config:
+      uri: 'http://controle-financeiro-config-server:8888'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

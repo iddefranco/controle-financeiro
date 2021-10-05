@@ -1,7 +1,6 @@
 package br.com.controlefinanceiro.controlefinanceiro.lancamento.entity;
 
 import br.com.controlefinanceiro.controlefinanceiro.subcategoria.entity.SubcategoriaEntity;
-import br.com.controlefinanceiro.controlefinanceiro.util.LocalDateAdapter;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import javax.persistence.Column;
@@ -18,7 +17,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
 @Entity
@@ -38,7 +36,6 @@ public class LancamentoEntity {
 	private BigDecimal valor;
 
 	@NotNull
- 	@XmlJavaTypeAdapter(LocalDateAdapter.class)
 	private LocalDate data;
 
 	@ManyToOne

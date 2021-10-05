@@ -178,7 +178,7 @@ public class LancamentoServiceIntegration extends AbstractApplicationTest {
 				.andExpect(jsonPath("$.mensagem").value("Lançamento não encontrado"));
 	}
 
-	/*@Test
+	@Test
 	void retorna_todos_lancamento() throws Exception {
 		final var categoriaDto = CategoriaComponent.createCategoriaDto(1L, "Despesa Fixa");
 		final var subcategoriaDto = SubcategoriaComponent.createSubcategoriaDto(1L, "Despesas com Educação", categoriaDto);
@@ -203,7 +203,7 @@ public class LancamentoServiceIntegration extends AbstractApplicationTest {
 				.andExpect(jsonPath("$.content[0].data").exists())
 				.andExpect(jsonPath("$.content[0].subcategoria").exists())
 				.andExpect(jsonPath("$.content[0].valor").exists());
-	}*/
+	}
 
 	private LancamentoDto mockLancamentoSave(final LancamentoDto lancamentoDto) {
 		CategoriaEntity categoriaEntity = categoriaRepository.save(categoriaMapper.toEntity(lancamentoDto.getSubcategoria().getCategoria()));

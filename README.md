@@ -10,7 +10,7 @@ Serviço que controla lançamento de receitas e despesas.<br>
 + [Java 11](https://openjdk.java.net/projects/jdk/11/)
 + [Gradle 6](https://docs.gradle.org/6.5.1/userguide/userguide.html)
 + [Spring-Boot 2.5.5.RELEASE](https://docs.spring.io/spring-boot/docs/2.5.5.RELEASE/reference/html/)
-+ [2020.0.0](https://docs.spring.io/spring-cloud/docs/Hoxton.SR6/reference/html/)
++ [Spring Cloud](https://docs.spring.io/spring-cloud/docs/2020.0.0/reference/html/)
 + [Flyway 6.5.5](https://flywaydb.org/documentation/)
 + [Lombok](https://projectlombok.org/)
 + [Spring Cloud Eureka](https://cloud.spring.io/spring-cloud-netflix/reference/html/)

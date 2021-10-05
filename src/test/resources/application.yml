@@ -36,22 +36,3 @@ controle.financeiro.messages:
   '009': 'Lançamento não encontrado'
   '010': 'Não foi possível salvar Lançamento'
   '011' : 'Lançamento inválido'
-
----
-eureka:
-  instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-  client:
-    service-url:
-      defaultZone: 'http://localhost:8761/eureka'
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 90000
-
-ribbon:
-  ConnectTimeout: 10000
-  ReadTimeout: 20000
